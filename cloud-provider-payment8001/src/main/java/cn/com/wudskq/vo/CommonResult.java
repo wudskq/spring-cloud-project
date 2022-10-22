@@ -22,11 +22,14 @@ public class CommonResult<T> implements Serializable {
     private String message;
     private T data;
 
+    public CommonResult(T data) {
+        this.data = data;
+    }
+
     public CommonResult(int code, String message) {
         this.code = code;
         this.message = message;
     }
-
 
     public CommonResult(int code, String message, T data) {
         this.code = code;
@@ -47,5 +50,18 @@ public class CommonResult<T> implements Serializable {
         return this;
     }
 
+
+    public CommonResult<T> fail(){
+        this.code = 500;
+        this.message = "请求失败";
+        return this;
+    }
+
+    public CommonResult<T> fail(T e){
+        this.code = 500;
+        this.message = "请求失败";
+        this.data = e;
+        return this;
+    }
 
 }
