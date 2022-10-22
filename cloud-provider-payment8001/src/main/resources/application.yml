@@ -13,5 +13,5 @@ spring:
     druid:
       test-while-idle: false
 
-mybatis:
-  mapperLocations: classpath*:mapper/*.xml
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
