@@ -18,7 +18,9 @@ eureka:
     register-with-eureka: true #是否将自己注册进入到eureka
     fetch-registry: true #是否从注册中心拉取服务信息
     service-url:
-      defaultZone: http://localhost:7001/eureka
+#      defaultZone: http://localhost:7001/eureka
+       # 集群版
+       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
 
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml
