@@ -5,6 +5,9 @@ server:
 eureka:
   instance:
     hostname: eureka7001.com
+  server:
+    enable-self-preservation: false #关闭eureka自我保护机制
+    eviction-interval-timer-in-ms: 2000 #心跳时间
   client:
     register-with-eureka: false  #自身提供注册服务、不注册自身
     fetch-registry: true #表示自己为注册中心、为其他服务提供注册用途
