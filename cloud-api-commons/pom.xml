@@ -9,7 +9,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-consumer-order80</artifactId>
+    <packaging>jar</packaging>
+
+    <artifactId>cloud-api-commons</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -18,16 +20,6 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-actuator</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
@@ -35,20 +27,19 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>
-            <scope>runtime</scope>
         </dependency>
 
         <dependency>
-            <groupId>cn.com.wudskq</groupId>
-            <artifactId>cloud-api-commons</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>com.baomidou</groupId>
-                    <artifactId>mybatis-plus-boot-starter</artifactId>
-                </exclusion>
-            </exclusions>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.7.20</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>
