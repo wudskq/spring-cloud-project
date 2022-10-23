@@ -6,6 +6,8 @@ import cn.com.wudskq.vo.CommonResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.ServiceInstance;
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +26,10 @@ public class PaymentController {
 
     @Value("${server.port}")
     private String port;
+
+    //服务发现 获取注册在erueka上的微服务名称列表
+    @Autowired
+    private DiscoveryClient discoveryClient;
 
     @Autowired
     private PaymentService paymentService;
@@ -61,5 +67,19 @@ public class PaymentController {
         return new CommonResult().success();
     }
 
+    @GetMapping("/discovery/info")
+    public Object getDiscoveryInfo(){
+        //获取注册在eureka微服务列表
+        List<String> services = discoveryClient.getServices();
+        for (String service : services) {
+            //获取微服务的相关实例
+            List<ServiceInstance> instances = discoveryClient.getInstances(service);
+            //获取实例的相关信息
+            for (ServiceInstance instance : instances) {
 
+                log.info("服务名称: "+ service + " 主机地址: " + instance.getHost() + " 端口号: " + instance.getPort());
+            }
+        }
+        return discoveryClient.getServices();
+    }
 }
