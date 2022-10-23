@@ -3,6 +3,7 @@ package cn.com.wudskq;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * @author chenfangchao
@@ -12,6 +13,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2022/10/23 2:59 PM
  */
 @Slf4j
+@EnableEurekaClient
 @SpringBootApplication
 public class CloudConsumerOrder80 {
     public static void main(String[] args) {
