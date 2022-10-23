@@ -24,14 +24,12 @@ public class PaymentController {
 
     @GetMapping("/list")
     public CommonResult<List<Payment>> list(){
-        List<Payment> list = paymentService.list();
-        return new CommonResult<List<Payment>>().success(list);
+        return new CommonResult<List<Payment>>().success(paymentService.list());
     }
 
     @GetMapping("/{id}")
     public CommonResult<Payment> query(@PathVariable("id") String id){
-        Payment payment = paymentService.query(id);
-        return new CommonResult<Payment>().success(payment);
+        return new CommonResult<Payment>().success(paymentService.query(id));
     }
 
     @PostMapping
