@@ -20,7 +20,8 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class OrderController {
 
-    public static final String PAYMENT_URL = "http://localhost:8001/";
+//   public static final String PAYMENT_URL = "http://localhost:8001/";
+    public static final String PAYMENT_URL = "http://cloud-prodiver-service/";
 
     @Autowired
     private RestTemplate restTemplate;
@@ -33,6 +34,11 @@ public class OrderController {
     @GetMapping("/{id}")
     public CommonResult query(@PathVariable("id") String id){
         return restTemplate.getForObject(PAYMENT_URL + "payment/" + id,CommonResult.class);
+    }
+
+    @GetMapping("/list")
+    public CommonResult list(){
+        return restTemplate.getForObject(PAYMENT_URL + "payment/list",CommonResult.class);
     }
 
 
