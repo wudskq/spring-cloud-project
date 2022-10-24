@@ -16,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
 public class ApplicationContextConfig {
 
     @Bean("restTemplate")
-    @LoadBalanced //添加rest远程调用负载均衡功能
+//    @LoadBalanced //添加rest远程调用负载均衡功能
     public RestTemplate getRestTemplate(){
         return new RestTemplate();
     }
