@@ -13,10 +13,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @Slf4j
 @SpringBootApplication
-public class CloudConsumeZkrOrder80 {
+public class CloudConsumeZkOrder80 {
     public static void main(String[] args) {
         log.info("-- CloudConsumeZkrOrder80 启动中 --");
-        SpringApplication.run(CloudConsumeZkrOrder80.class);
+        SpringApplication.run(CloudConsumeZkOrder80.class);
         log.info("-- CloudConsumeZkrOrder80 启动成功 --");
     }
 }

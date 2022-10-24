@@ -26,6 +26,8 @@
         <module>cloud-consumerzk-order80</module>
         <!-- 支付模块(consul版本) -->
         <module>cloud-provider-payment8004</module>
+        <!-- 订单模块(consul版本) -->
+        <module>cloud-consumerconsul-order80</module>
     </modules>
 
     <packaging>pom</packaging>
