@@ -1,6 +1,7 @@
 package cn.com.wudskq.controller;
 
 import cn.com.wudskq.dto.Payment;
+import cn.com.wudskq.lb.LoadBalancer;
 import cn.com.wudskq.lb.MyLoadBalancer;
 import cn.com.wudskq.vo.CommonResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,7 +38,7 @@ public class OrderController {
     private DiscoveryClient discoveryClient;
 
     @Autowired
-    private MyLoadBalancer myLoadBalancer;
+    private LoadBalancer myLoadBalancer;
 
     @GetMapping("/create")
     public CommonResult create(Payment payment) {
