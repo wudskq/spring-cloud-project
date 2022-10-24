@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author chenfangchao
- * @title: CloudConsumerOrder80
+ * @title: CloudConsumeZkOrder80
  * @projectName spring-cloud-project
  * @description: TODO
  * @date 2022/10/23 2:59 PM
