@@ -11,6 +11,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author chenfangchao
@@ -34,9 +35,12 @@ public class PaymentController {
     @Autowired
     private PaymentService paymentService;
 
+    private static AtomicInteger integer = new AtomicInteger();
+
     @GetMapping("/list")
     public CommonResult<List<Payment>> list(){
-        log.info("支付微服务 port:" + port + "查询列表调用成功");
+        int count = integer.getAndIncrement();
+        log.info("支付微服务 port:" + port + " 查询列表调用成功" + " 调用次数:" + count);
         return new CommonResult<List<Payment>>().success(paymentService.list());
     }
 
