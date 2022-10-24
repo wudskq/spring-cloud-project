@@ -22,6 +22,8 @@
         <module>cloud-consumer-order80</module>
         <!-- 支付模块(zookeeper版本) -->
         <module>cloud-provider-payment8003</module>
+        <!-- 订单模块(zookeeper版本) -->
+        <module>cloud-consumerzk-order80</module>
     </modules>
 
     <packaging>pom</packaging>
