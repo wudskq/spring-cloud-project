@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: cloud-consumerzk-order
+    name: cloud-consumer-consul-order
   cloud:
     consul:
       host: localhost
