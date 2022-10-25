@@ -30,11 +30,12 @@ public class PaymentServiceImpl implements PaymentService {
         QueryWrapper<Payment> queryWrapper = new QueryWrapper<>();
         try {
             Thread.sleep(3000);
-            log.debug("----支付服务延迟3秒----");
+            log.info("----支付服务延迟3秒----");
+            return paymentMapper.selectList(queryWrapper);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        return paymentMapper.selectList(queryWrapper);
+        return null;
     }
 
     @Override
