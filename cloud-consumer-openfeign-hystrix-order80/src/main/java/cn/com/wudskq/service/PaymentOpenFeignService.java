@@ -22,7 +22,9 @@ public interface PaymentOpenFeignService {
     @GetMapping("/payment/list")
     CommonResult<List<Payment>> list();
 
-
     @GetMapping("/payment/timeout")
     String timeOut();
+
+    @GetMapping("/error")
+    int error();
 }

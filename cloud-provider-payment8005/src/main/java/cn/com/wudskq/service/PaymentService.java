@@ -45,4 +45,8 @@ public interface PaymentService {
      */
     void delete(List<String> ids);
 
+
+    int error();
+
+    String timeOut();
 }

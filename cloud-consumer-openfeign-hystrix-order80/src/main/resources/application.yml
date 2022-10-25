@@ -13,7 +13,7 @@ feign:
       default:
         #不设置connectTimeout会导致readTimeout设置不生效
         connectTimeout: 3000 #建立链接最大时间
-        readTimeout: 6000 #请求资源最大时间
+        readTimeout: 3000 #请求资源最大时间
 
 
 logging:

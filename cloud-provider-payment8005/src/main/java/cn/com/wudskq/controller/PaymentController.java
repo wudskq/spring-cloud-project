@@ -29,53 +29,56 @@ public class PaymentController {
     private PaymentService paymentService;
 
     @GetMapping("/list")
-    public CommonResult<List<Payment>> list(){
+    public CommonResult<List<Payment>> list() {
         log.info("支付微服务 port:" + port + "查询列表调用成功");
         return new CommonResult<List<Payment>>().success(paymentService.list());
     }
 
     @GetMapping("/{id}")
-    public CommonResult<Payment> query(@PathVariable("id") String id){
+    public CommonResult<Payment> query(@PathVariable("id") String id) {
         log.info("支付微服务 port:" + port + "查询详情调用成功");
         return new CommonResult<Payment>().success(paymentService.query(id));
     }
 
     @PostMapping
-    public CommonResult save(@RequestBody Payment payment){
+    public CommonResult save(@RequestBody Payment payment) {
         log.info("支付微服务 port:" + port + "保存支付流水调用成功");
         paymentService.save(payment);
         return new CommonResult().success();
     }
 
     @PutMapping
-    public CommonResult edit(@RequestBody Payment payment){
+    public CommonResult edit(@RequestBody Payment payment) {
         log.info("支付微服务 port:" + port + "编辑支付流水调用成功");
         paymentService.edit(payment);
         return new CommonResult().success();
     }
 
     @DeleteMapping
-    public CommonResult delete(@RequestParam("ids") List<String> ids){
+    public CommonResult delete(@RequestParam("ids") List<String> ids) {
         log.info("支付微服务 port:" + port + "删除支付流水调用成功");
         paymentService.delete(ids);
         return new CommonResult().success();
     }
 
+    /**
+     * 出错 服务熔断
+     *
+     * @return
+     */
     @GetMapping("/error")
-    public int error(){
-        int i = 9/0;
-        return i;
+    public int error() {
+        return paymentService.error();
     }
 
+    /**
+     * 超时 服务降级
+     *
+     * @return
+     */
     @GetMapping("/timeout")
-    public String timeOut(){
-        try {
-            Thread.sleep(5000);
-            return Thread.currentThread().getName();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return null;
+    public String timeOut() {
+        return paymentService.timeOut();
     }
 
 }

@@ -34,4 +34,9 @@ public class OrderOpenFeignController {
         return paymentOpenFeignService.timeOut();
     }
 
+    @GetMapping("/error")
+    public int error(){
+        return paymentOpenFeignService.error();
+    }
+
 }

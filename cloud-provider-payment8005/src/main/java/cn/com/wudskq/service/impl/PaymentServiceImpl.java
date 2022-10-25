@@ -4,7 +4,11 @@ import cn.com.wudskq.dto.Payment;
 import cn.com.wudskq.mapper.PaymentMapper;
 import cn.com.wudskq.service.PaymentService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.netflix.hystrix.HystrixCommandProperties;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -52,4 +56,30 @@ public class PaymentServiceImpl implements PaymentService {
     public void delete(List<String> ids) {
         paymentMapper.deleteBatchIds(ids);
     }
+
+    @Override
+    public int error() {
+        int i = 9 / 0;
+        return i;
+    }
+
+
+    @HystrixCommand(fallbackMethod = "fallbackOne",commandProperties = {
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "3000")
+    }) //代表3000以内代表正常、如何超过回调兜底方法
+    @Override
+    public String timeOut() {
+        try {
+            Thread.sleep(5000);
+            return Thread.currentThread().getName();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String fallbackOne(){
+        return "服务超时～、请稍后再试!";
+    }
+
 }
