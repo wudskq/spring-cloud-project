@@ -26,8 +26,12 @@ public class OrderOpenFeignController {
     @Autowired
     private PaymentOpenFeignService paymentOpenFeignService;
 
+    @HystrixCommand(fallbackMethod = "fallbackThree",commandProperties = {
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "1500")
+    })  //服务超时、兜底方案
     @GetMapping("/list")
     public CommonResult<List<Payment>> list(){
+        int i = 10/0;
         return paymentOpenFeignService.list();
     }
 
@@ -55,6 +59,10 @@ public class OrderOpenFeignController {
 
     public String fallbackTwo(){
         return "服务异常～、请稍后再试!";
+    }
+
+    public CommonResult<List<Payment>> fallbackThree(){
+        return new CommonResult("自身服务异常～、请稍后再试!");
     }
 
 }
