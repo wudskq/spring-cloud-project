@@ -1,0 +1,30 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: cloud-consumer-order
+  main:
+    allow-bean-definition-overriding: true
+
+feign:
+  client:
+    config:
+      default:
+        #不设置connectTimeout会导致readTimeout设置不生效
+        connectTimeout: 3000 #建立链接最大时间
+        readTimeout: 6000 #请求资源最大时间
+
+
+logging:
+  level:
+    #feign日志以什么级别监控哪个接口
+    cn.com.wudskq.service.PaymentOpenFeignService: debug
+
+eureka:
+  client:
+    register-with-eureka: true #是否将自己注册进入到eureka
+    fetch-registry: true #是否从注册中心拉取服务信息
+    service-url:
+      defaultZone: http://localhost:7001/eureka
+#       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka #集群版

@@ -38,6 +38,8 @@
 
         <!-- 支付模块(hystrix版本) -->
         <module>cloud-provider-payment8005</module>
+        <!-- 订单模块(hystrix版本) -->
+        <module>cloud-consumer-openfeign-hystrix-order80</module>
 
 
     </modules>
