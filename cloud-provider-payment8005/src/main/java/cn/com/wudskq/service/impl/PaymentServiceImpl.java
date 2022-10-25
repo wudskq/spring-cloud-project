@@ -57,6 +57,13 @@ public class PaymentServiceImpl implements PaymentService {
         paymentMapper.deleteBatchIds(ids);
     }
 
+    /**
+     * 当前服务不可用、即马上需要做服务降级
+     * @return
+     */
+    @HystrixCommand(fallbackMethod = "fallbackTwo",commandProperties = {
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "3000")
+    })
     @Override
     public int error() {
         int i = 9 / 0;
@@ -80,6 +87,10 @@ public class PaymentServiceImpl implements PaymentService {
 
     public String fallbackOne(){
         return "服务超时～、请稍后再试!";
+    }
+
+    public int fallbackTwo(){
+        return 0;
     }
 
 }
