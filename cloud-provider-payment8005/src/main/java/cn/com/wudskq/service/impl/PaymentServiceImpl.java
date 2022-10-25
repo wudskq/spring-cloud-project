@@ -77,7 +77,7 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public String timeOut() {
         try {
-            Thread.sleep(5000);
+            Thread.sleep(3000);
             return Thread.currentThread().getName();
         } catch (InterruptedException e) {
             e.printStackTrace();
