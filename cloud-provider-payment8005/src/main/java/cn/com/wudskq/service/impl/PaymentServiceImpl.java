@@ -72,7 +72,7 @@ public class PaymentServiceImpl implements PaymentService {
 
 
     @HystrixCommand(fallbackMethod = "fallbackOne",commandProperties = {
-            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "3000")
+            @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "5000")
     }) //代表3000以内代表正常、如何超过回调兜底方法
     @Override
     public String timeOut() {
