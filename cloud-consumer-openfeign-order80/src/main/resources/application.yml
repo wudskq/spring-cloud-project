@@ -14,6 +14,11 @@ feign:
         readTimeout: 6000 #请求资源最大时间
 
 
+logging:
+  level:
+    #feign日志以什么级别监控哪个接口
+    cn.com.wudskq.service.PaymentOpenFeignService: debug
+
 eureka:
   client:
     register-with-eureka: true #是否将自己注册进入到eureka
