@@ -35,6 +35,11 @@
         <module>cloud-consumer-ribbon-order80</module>
         <!-- 订单模块(openfeign版本) -->
         <module>cloud-consumer-openfeign-order80</module>
+
+        <!-- 支付模块(hystrix版本) -->
+        <module>cloud-provider-payment8005</module>
+
+
     </modules>
 
     <packaging>pom</packaging>
