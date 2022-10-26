@@ -28,7 +28,7 @@ public class OrderOpenFeignController {
 
     @HystrixCommand(fallbackMethod = "fallbackThree",commandProperties = {
             @HystrixProperty(name="execution.isolation.thread.timeoutInMilliseconds",value = "1500")
-    })  //服务超时、兜底方案
+    })  //自身服务异常、兜底方案
     @GetMapping("/list")
     public CommonResult<List<Payment>> list(){
         int i = 10/0;
