@@ -41,6 +41,9 @@
         <!-- 订单模块(hystrix版本) -->
         <module>cloud-consumer-openfeign-hystrix-order80</module>
 
+        <!-- hystrix图形化监控 -->
+        <module>cloud-consumer-hystrix-dashboard9001</module>
+
 
     </modules>
 
