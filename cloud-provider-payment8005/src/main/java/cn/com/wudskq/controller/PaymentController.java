@@ -3,6 +3,7 @@ package cn.com.wudskq.controller;
 import cn.com.wudskq.dto.Payment;
 import cn.com.wudskq.service.PaymentService;
 import cn.com.wudskq.vo.CommonResult;
+import cn.hutool.core.lang.UUID;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -61,6 +62,7 @@ public class PaymentController {
         return new CommonResult().success();
     }
 
+
     /**
      * 出错 服务熔断
      *
@@ -79,6 +81,15 @@ public class PaymentController {
     @GetMapping("/timeout")
     public String timeOut() {
         return paymentService.timeOut();
+    }
+
+
+    /**
+     * 服务熔断
+     */
+    @GetMapping("/break")
+    public String serviceBreak(@RequestParam("i") Integer i){
+        return paymentService.paymentBreak(i);
     }
 
 }

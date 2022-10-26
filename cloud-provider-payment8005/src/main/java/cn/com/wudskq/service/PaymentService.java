@@ -1,6 +1,7 @@
 package cn.com.wudskq.service;
 
 import cn.com.wudskq.dto.Payment;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -46,7 +47,22 @@ public interface PaymentService {
     void delete(List<String> ids);
 
 
+    /**
+     * 服务降级异常模拟
+     * @return
+     */
     int error();
 
+    /**
+     * 服务降级超时模拟
+     * @return
+     */
     String timeOut();
+
+    /**
+     * 服务熔断模拟
+     * @param i
+     * @return
+     */
+    String paymentBreak(@RequestParam("i") Integer i);
 }
