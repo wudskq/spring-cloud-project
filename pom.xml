@@ -44,6 +44,9 @@
         <!-- hystrix图形化监控 -->
         <module>cloud-consumer-hystrix-dashboard9001</module>
 
+        <!-- 网关服务 -->
+        <module>cloud-gateway-gateway9527</module>
+
 
     </modules>
 
