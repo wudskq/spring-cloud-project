@@ -49,6 +49,8 @@
 
         <!-- 配置中心 -->
         <module>cloud-config-center3344</module>
+        <!-- 配置中心客户端 -->
+        <module>cloud-config-client3355</module>
 
 
     </modules>
