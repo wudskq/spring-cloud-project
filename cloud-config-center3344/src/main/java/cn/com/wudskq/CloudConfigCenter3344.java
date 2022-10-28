@@ -2,6 +2,9 @@ package cn.com.wudskq;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.config.server.EnableConfigServer;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * @author chenfangchao
@@ -10,6 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @description: TODO
  * @date 2022/10/28 5:34 PM
  */
+@EnableConfigServer
+@EnableEurekaClient
+@EnableDiscoveryClient
 @SpringBootApplication
 public class CloudConfigCenter3344 {
     public static void main(String[] args) {
