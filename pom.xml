@@ -47,6 +47,9 @@
         <!-- 网关服务 -->
         <module>cloud-gateway-gateway9527</module>
 
+        <!-- 配置中心 -->
+        <module>cloud-config-center3344</module>
+
 
     </modules>
 
