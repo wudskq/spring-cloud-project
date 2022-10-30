@@ -45,5 +45,6 @@ management:
    web:
      exposure:
        # curl -X POST "http://192.168.1.101:3344/actuator/bus-refresh"
+       # curl -X POST "http://192.168.1.101:3344/actuator/bus-refresh/cloud-config-client-3355:3355" 定点通知客户端（规则名称-微服务名+端口号）
        include: "bus-refresh"
 
