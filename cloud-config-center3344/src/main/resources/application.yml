@@ -15,12 +15,11 @@ spring:
             - config
       #读取分支
       label: main
-  rabbitmq: #集成rabbitmq
+  rabbitmq: #集成rabbitmq curl -X POST "http://192.168.1.101:3344/actuator/bus-refresh"
     host: localhost
-    port: 5673
+    port: 5672
     username: guest
     password: guest
-
 
 eureka:
   client:
@@ -45,5 +44,6 @@ management:
   endpoints:
    web:
      exposure:
+       # curl -X POST "http://192.168.1.101:3344/actuator/bus-refresh"
        include: "bus-refresh"
 
