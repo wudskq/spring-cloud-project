@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 /**
  * @author chenfangchao
- * @title: CloudConfigClient3355
+ * @title: CloudConfigClient3366
  * @projectName spring-cloud-project
  * @description: TODO
  * @date 2022/10/28 5:34 PM
@@ -15,8 +15,8 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableEurekaClient
 @EnableDiscoveryClient
 @SpringBootApplication
-public class CloudConfigClient3355 {
+public class CloudConfigClient3366 {
     public static void main(String[] args) {
-        SpringApplication.run(CloudConfigClient3355.class);
+        SpringApplication.run(CloudConfigClient3366.class);
     }
 }

@@ -1,26 +1,27 @@
 server:
-  port: 3344
+  port: 3366
 
 spring:
   application:
-    name: cloud-config-center
+    name: cloud-config-client-3366
   cloud:
     config:
-      server:
-        git:
-          #git仓库地址
-          uri: https://github.com/wudskq/spring-cloud-config.git
-          #搜索目录
-          search-paths:
-            - config
-      #读取分支
-      label: main
+      label: main #读取的分支
+      uri: http://localhost:3344
+      name: config #配置文件名称
+      profile: dev #读取后缀名称
   rabbitmq: #集成rabbitmq
     host: localhost
     port: 5673
     username: guest
     password: guest
 
+#暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 eureka:
   client:
@@ -32,18 +33,9 @@ eureka:
       # 集群版
   #      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka
   instance:
-    instance-id: cloud-config-center #更新主机名称
+    instance-id: cloud-config-client-3366 #更新主机名称
     prefer-ip-address: true #显示IP地址
     #Eureka 客户端同服务端发送心跳的时间间隔，单位为秒（默认是30秒）
     lease-renewal-interval-in-seconds: 1
     #Eureka服务端在收到最后一次心跳后等待的时间上限，单位为秒（默认是90秒）超时将剔除服务
     lease-expiration-duration-in-seconds: 2
-
-
-# 暴露bus刷新配置的端点
-management:
-  endpoints:
-   web:
-     exposure:
-       include: "bus-refresh"
-
