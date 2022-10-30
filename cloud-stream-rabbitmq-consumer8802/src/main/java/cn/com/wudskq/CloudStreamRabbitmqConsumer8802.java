@@ -1,5 +1,9 @@
 package cn.com.wudskq;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
 /**
  * @author chenfangchao
  * @title: CloudStreamRabbitmqConsumer8802
@@ -7,5 +11,11 @@ package cn.com.wudskq;
  * @description: TODO
  * @date 2022/10/30 9:38 PM
  */
+@EnableEurekaClient
+@SpringBootApplication
 public class CloudStreamRabbitmqConsumer8802 {
+    public static void main(String[] args) {
+        SpringApplication.run(CloudStreamRabbitmqConsumer8802.class);
+    }
+
 }
