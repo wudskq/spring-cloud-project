@@ -57,6 +57,11 @@
         <module>cloud-stream-rabbitmq-consumer8803</module>
 
 
+        <!-- 支付模块(zipkin链路跟踪) -->
+        <module>cloud-provider-payment8006</module>
+        <!-- 订单模块(zipkin链路跟踪) -->
+        <module>cloud-consumer-zipkin-order80</module>
+
     </modules>
 
     <packaging>pom</packaging>
