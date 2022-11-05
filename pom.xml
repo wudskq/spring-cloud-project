@@ -62,6 +62,12 @@
         <!-- 订单模块(zipkin链路跟踪) -->
         <module>cloud-consumer-zipkin-order80</module>
 
+
+        <!-- nacos消费者 -->
+        <module>cloud-consumer-nacos-order80</module>
+        <!-- nacos生产者 -->
+        <module>cloud-provider-nacos-payment8007</module>
+
     </modules>
 
     <packaging>pom</packaging>
