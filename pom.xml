@@ -69,6 +69,9 @@
         <module>cloud-provider-nacos-payment8007</module>
         <module>cloud-provider-nacos-payment8008</module>
 
+        <!-- nacos配置中心 -->
+        <module>cloud-alibaba-config-client-3377</module>
+
     </modules>
 
     <packaging>pom</packaging>
