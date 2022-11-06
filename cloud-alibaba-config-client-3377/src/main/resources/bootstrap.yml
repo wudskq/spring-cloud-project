@@ -11,4 +11,5 @@ spring:
       config:
         server-addr: localhost:8848
         file-extension: yml
-        group: TEST_GROUP #分组配置中心
+        group: TEST_GROUP #分组配置
+        namespace: b56586be-85c6-45c9-bbe9-ad40b7bd23f4 #命名空间配置
