@@ -67,6 +67,7 @@
         <module>cloud-consumer-nacos-order80</module>
         <!-- nacos生产者 -->
         <module>cloud-provider-nacos-payment8007</module>
+        <module>cloud-provider-nacos-payment8008</module>
 
     </modules>
 
