@@ -78,6 +78,13 @@
         <module>cloud-alibaba-sentinel-demote-service8402</module>
         <!-- 热点key 配置 -->
         <module>cloud-alibaba-sentinel-hotkey-config-service8403</module>
+
+        <!-- 服务生产者 nacos-sentinel -->
+        <module>cloud-provider-nacos-sentinel-payment9003</module>
+        <module>cloud-provider-nacos-sentinel-payment9004</module>
+        <!-- 服务消费者 nacos-rabbion-->
+        <module>cloud-consumer-nacos-sentinel-order84</module>
+
     </modules>
 
     <packaging>pom</packaging>
