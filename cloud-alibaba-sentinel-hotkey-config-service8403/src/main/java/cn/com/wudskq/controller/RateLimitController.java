@@ -1,8 +1,10 @@
 package cn.com.wudskq.controller;
 
+import cn.com.wudskq.handler.BlockedHandler;
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2022/11/14 10:44 AM
  */
 @RestController
+@RequestMapping("/rate")
 public class RateLimitController {
 
 
@@ -33,9 +36,14 @@ public class RateLimitController {
         return "By Url 访问正常";
     }
 
-    public String byUrlHandler(BlockException exception){
-        return "By Url 访问失败";
+
+    @GetMapping("/fail")
+    @SentinelResource(value = "fail",blockHandlerClass = BlockedHandler.class,
+            blockHandler = "blockHandler1")
+    public String fail(){
+        return "fail";
     }
+
 
 
 
