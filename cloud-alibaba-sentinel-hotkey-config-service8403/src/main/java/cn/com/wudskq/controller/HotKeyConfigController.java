@@ -29,4 +29,10 @@ public class HotKeyConfigController {
         return "热点key访问失败";
     }
 
+    @GetMapping("/req/url")
+    @SentinelResource(value = "requrl")
+    public String hotKeyUrl(@RequestParam(value = "par1",required = false)String par1,@RequestParam(value = "par2",required = false)String par2){
+        return "热点key访问正常";
+    }
+
 }
