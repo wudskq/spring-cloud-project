@@ -72,8 +72,11 @@
         <!-- nacos配置中心 -->
         <module>cloud-alibaba-config-client-3377</module>
         <!-- sentinel服务降级熔断 -->
+        <!-- 限流 -->
         <module>cloud-alibaba-sentinel-flowlimit-service8401</module>
+        <!-- 降级 -->
         <module>cloud-alibaba-sentinel-demote-service8402</module>
+        <!-- 热点key 配置 -->
         <module>cloud-alibaba-sentinel-hotkey-config-service8403</module>
     </modules>
 
