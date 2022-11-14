@@ -2,11 +2,9 @@ package cn.com.wudskq.controller;
 
 import cn.com.wudskq.dto.Payment;
 import cn.com.wudskq.vo.CommonResult;
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -36,8 +34,17 @@ public class OrderController {
         return restTemplate.getForObject(PAYMENT_URL + "payment/" + id,CommonResult.class);
     }
 
+    @SentinelResource(value = "list")
     @GetMapping("/list")
-    public CommonResult list(){
+    public CommonResult list(@RequestParam(value = "type",required = false)Integer type){
+        if(null != type){
+            if(type == 1){
+                throw new IllegalArgumentException("非法参数异常!");
+            }
+            if(type == 2){
+                throw new NullPointerException("空指针异常!");
+            }
+        }
         return restTemplate.getForObject(PAYMENT_URL + "payment/list",CommonResult.class);
     }
 

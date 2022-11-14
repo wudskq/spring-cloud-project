@@ -82,7 +82,7 @@
         <!-- 服务生产者 nacos-sentinel -->
         <module>cloud-provider-nacos-sentinel-payment9003</module>
         <module>cloud-provider-nacos-sentinel-payment9004</module>
-        <!-- 服务消费者 nacos-rabbion-->
+        <!-- 服务消费者 nacos-sentinel-->
         <module>cloud-consumer-nacos-sentinel-order84</module>
 
     </modules>
