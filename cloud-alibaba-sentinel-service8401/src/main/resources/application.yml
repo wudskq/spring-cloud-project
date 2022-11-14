@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: cloud-alibaba-sentinel-service8401
+    name: cloud-alibaba-sentinel-service
   cloud:
     nacos:
       discovery:

@@ -22,7 +22,8 @@ public class FlowLimitController {
     }
 
     @GetMapping("/b")
-    public String b(){
+    public String b() throws InterruptedException {
+        Thread.sleep(1000);
         return "b";
     }
 
