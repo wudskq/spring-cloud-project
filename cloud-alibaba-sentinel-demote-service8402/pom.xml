@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <!--降级 RT(平均时间) 异常比例 异常数-->
     <artifactId>cloud-alibaba-sentinel-service8402</artifactId>
 
     <properties>

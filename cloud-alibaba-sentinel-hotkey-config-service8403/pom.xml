@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <!-- 热点key 系统规则 配置 -->
     <artifactId>cloud-alibaba-sentinel-service8403</artifactId>
 
     <properties>

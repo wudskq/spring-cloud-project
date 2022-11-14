@@ -72,9 +72,9 @@
         <!-- nacos配置中心 -->
         <module>cloud-alibaba-config-client-3377</module>
         <!-- sentinel服务降级熔断 -->
-        <module>cloud-alibaba-sentinel-service8401</module>
-        <module>cloud-alibaba-sentinel-service8402</module>
-        <module>cloud-alibaba-sentinel-service8403</module>
+        <module>cloud-alibaba-sentinel-flowlimit-service8401</module>
+        <module>cloud-alibaba-sentinel-demote-service8402</module>
+        <module>cloud-alibaba-sentinel-hotkey-config-service8403</module>
     </modules>
 
     <packaging>pom</packaging>

@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <!--流量控制 QPS直接失败 线程数直接失败 关联 预热 排队等待 -->
     <artifactId>cloud-alibaba-sentinel-service8401</artifactId>
 
     <properties>
