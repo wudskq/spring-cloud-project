@@ -4,6 +4,7 @@ import cn.com.wudskq.dto.SeataStorage;
 import cn.com.wudskq.mapper.SeataStorageMapper;
 import cn.com.wudskq.service.SeataStorageService;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,5 +31,9 @@ public class SeataStorageServiceImpl implements SeataStorageService {
         seataStorage.setUsed(seataStorage.getUsed()+count);
         //剩余库存减少
         seataStorage.setResidue(seataStorage.getResidue()-count);
+        //更新
+        UpdateWrapper<SeataStorage> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("product_id",productId);
+        seataStorageMapper.update(seataStorage,updateWrapper);
     }
 }
