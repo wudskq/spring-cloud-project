@@ -1,6 +1,6 @@
 package cn.com.wudskq.mapper;
 
-import cn.com.wudskq.dto.SeataOrder;
+import cn.com.wudskq.dto.SeataAccount;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -10,5 +10,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @description: TODO
  * @date 2022/11/15 3:15 PM
  */
-public interface SeataAccountMapper extends BaseMapper<SeataOrder> {
+public interface SeataAccountMapper extends BaseMapper<SeataAccount> {
 }

@@ -10,16 +10,16 @@ import java.io.Serializable;
 
 /**
  * @author chenfangchao
- * @title: SeataOrder
+ * @title: SeataAccount
  * @projectName spring-cloud-project
  * @description: TODO
  * @date 2022/11/15 3:30 PM
  */
-@TableName("t_order")
+@TableName("t_account")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SeataOrder implements Serializable {
+public class SeataAccount implements Serializable {
     private static final long serialVersionUID = -2941864815633822626L;
 
     @TableId("id")
@@ -27,13 +27,10 @@ public class SeataOrder implements Serializable {
 
     private Long userId;
 
-    private Long productId;
+    private Long total;
 
-    private Long count;
+    private Long used;
 
-    private Long money;
-
-    /** 订单状态：0创建中，1已完结 **/
-    private Integer status;
+    private Long residue;
 
 }
