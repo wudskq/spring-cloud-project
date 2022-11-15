@@ -85,6 +85,11 @@
         <!-- 服务消费者 nacos-sentinel-->
         <module>cloud-consumer-nacos-sentinel-order84</module>
 
+        <!-- seata-->
+        <module>seata-order-service2001</module>
+        <module>seata-storage-service2002</module>
+        <module>seata-account-service2003</module>
+
     </modules>
 
     <packaging>pom</packaging>
