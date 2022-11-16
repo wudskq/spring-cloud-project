@@ -5,7 +5,7 @@ import cn.com.wudskq.mapper.SeataOrderMapper;
 import cn.com.wudskq.service.SeataAccountService;
 import cn.com.wudskq.service.SeataOrderService;
 import cn.com.wudskq.service.SeataStorageService;
-import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,24 +30,19 @@ public class SeataOrderServiceImpl implements SeataOrderService {
     @Autowired
     private SeataAccountService seataAccountService;
 
+    //添加分布式事务
+    @GlobalTransactional(name="wudskq-cloud-tx-create-order",rollbackFor = Exception.class)
     @Override
     public void create(SeataOrder seataOrder) {
         log.info("---订单开始新增---");
-        seataOrderMapper.insert(seataOrder);
+        seataOrderMapper.save(seataOrder);
         log.info("---订单微服务开始调用库存微服务---库存开始扣减---");
         seataStorageService.decrease(seataOrder.getProductId(),seataOrder.getCount());
         log.info("---订单微服务开始调用账户微服务---余额开始扣减---");
         seataAccountService.decrease(seataOrder.getUserId(),seataOrder.getMoney());
         log.info("---订单状态开始修改---");
-        update(seataOrder);
+        seataOrderMapper.edit(seataOrder);
         log.info("---订单完成---");
     }
 
-    @Override
-    public void update(SeataOrder seataOrder) {
-        UpdateWrapper<SeataOrder> updateWrapper = new UpdateWrapper<SeataOrder>();
-        updateWrapper.eq("user_id",seataOrder.getUserId());
-        seataOrder.setStatus(1);
-        seataOrderMapper.update(seataOrder,updateWrapper);
-    }
 }

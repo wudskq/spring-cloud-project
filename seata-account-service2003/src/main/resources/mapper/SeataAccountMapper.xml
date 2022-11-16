@@ -1,0 +1,13 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.com.wudskq.mapper.SeataAccountMapper">
+
+    <!-- 根据用户ID减少余额 -->
+    <update id="decreaseAccountByUserId">
+        update t_account set total = total - #{money} ,
+        used = used + #{money},residue = residue - #{money}
+        where user_id = #{userId}
+    </update>
+</mapper>

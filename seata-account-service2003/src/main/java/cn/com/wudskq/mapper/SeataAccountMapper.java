@@ -1,7 +1,9 @@
 package cn.com.wudskq.mapper;
 
-import cn.com.wudskq.dto.SeataAccount;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.math.BigDecimal;
 
 /**
  * @author chenfangchao
@@ -10,5 +12,13 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @description: TODO
  * @date 2022/11/15 3:15 PM
  */
-public interface SeataAccountMapper extends BaseMapper<SeataAccount> {
+@Mapper
+public interface SeataAccountMapper{
+
+    /**
+     * 根据用户ID减少余额
+     * @param userId
+     * @param money
+     */
+    void decreaseAccountByUserId(@Param("userId") Long userId,@Param("money") BigDecimal money);
 }

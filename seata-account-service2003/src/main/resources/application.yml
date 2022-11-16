@@ -15,13 +15,13 @@ spring:
   cloud:
     alibaba:
       seata: #自定义事物组名称需要与seate-server中对应
-        tx-service-group: wudskq_cloud_tx_group
+        tx-service-group: cloud_tx_group
     nacos:
       discovery:
         server-addr: localhost:8848
 
-mybatis-plus:
-  mapper-locations: classpath*:/mapper/**/*.xml
+mybatis:
+  mapperLocations: classpath*:/mapper/**/*.xml
 
 management:
   endpoints:

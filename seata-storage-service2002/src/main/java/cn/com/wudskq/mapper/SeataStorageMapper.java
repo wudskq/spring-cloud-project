@@ -1,7 +1,7 @@
 package cn.com.wudskq.mapper;
 
-import cn.com.wudskq.dto.SeataStorage;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * @author chenfangchao
@@ -10,5 +10,13 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @description: TODO
  * @date 2022/11/15 3:15 PM
  */
-public interface SeataStorageMapper extends BaseMapper<SeataStorage> {
+@Mapper
+public interface SeataStorageMapper{
+
+    /**
+     * 根据商品ID减少库存
+     * @param productId
+     * @param count
+     */
+    void decreaseStorageByProductId(@Param("productId") Long productId,@Param("count") Integer count);
 }

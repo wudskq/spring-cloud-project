@@ -16,11 +16,4 @@ public interface SeataOrderService {
      * @param seataOrder
      */
     void create(SeataOrder seataOrder);
-
-    /**
-     * 更新订单
-     * @param seataOrder
-     */
-    void update(SeataOrder seataOrder);
-
 }
