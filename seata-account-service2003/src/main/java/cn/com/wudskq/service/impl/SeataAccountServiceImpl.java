@@ -23,11 +23,11 @@ public class SeataAccountServiceImpl implements SeataAccountService {
     @Override
     public void decreaseAccount(Long userId, BigDecimal money) {
         //模拟支付服务超时
-        try {
-            Thread.sleep(10000);
+//        try {
+//            Thread.sleep(10000);
             seataAccountMapper.decreaseAccountByUserId(userId,money);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
     }
 }
